@@ -18,7 +18,7 @@ RSpec.describe Book, type: :model do
 
     end
 
-    it 'is not valid without a name' do
+    it 'is not valid without a name' do 
         subject.title = nil
         expect(subject).not_to be_valid
     end
