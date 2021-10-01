@@ -7,7 +7,7 @@ RSpec.describe 'Creating a book', type: :feature do
         fill_in 'Title', with: 'Out of the Easy'
         fill_in 'Author', with: 'Ruta Sepetys'
         fill_in 'Price', with: 10.99
-        fill_in 'Published Date', with: Date.new(2013, 2, 12)
+        fill_in 'Published date', with: '2013-02-12'
         click_on 'Create Book'
         visit books_path
         expect(page).to have_content('Out of the Easy')
@@ -22,7 +22,7 @@ RSpec.describe 'Creating a book', type: :feature do
         visit new_book_path 
         fill_in 'Author', with: 'Ruta Sepetys'
         fill_in 'Price', with: 10.99
-        fill_in 'Published Date', with: Date.new(2013, 2, 12)
+        fill_in 'Published date', with: '2013-02-12'
         click_on 'Create Book'
         expect(page).to have_content('Title can\'t be blank')
     end
@@ -31,7 +31,7 @@ RSpec.describe 'Creating a book', type: :feature do
         visit new_book_path 
         fill_in 'Title', with: 'Out of the Easy'
         fill_in 'Price', with: 10.99
-        fill_in 'Published Date', with: Date.new(2013, 2, 12)
+        fill_in 'Published date', with: '2013-02-12'
         click_on 'Create Book'
         expect(page).to have_content('Author can\'t be blank')
     end
@@ -40,15 +40,15 @@ RSpec.describe 'Creating a book', type: :feature do
         visit new_book_path
         fill_in 'Title', with: 'Out of the Easy'
         fill_in 'Author', with: 'Ruta Sepetys' 
-        fill_in 'Published Date', with: Date.new(2013, 2, 12)
+        fill_in 'Published date', with: '2013-02-12'
         click_on 'Create Book'
         expect(page).to have_content('Price can\'t be blank')
         fill_in 'Title', with: 'Out of the Easy'
         fill_in 'Author', with: 'Ruta Sepetys' 
         fill_in 'Price', with: 'test_string'
-        fill_in 'Published Date', with: Date.new(2013, 2, 12)
+        fill_in 'Published date', with: '2013-02-12'
         click_on 'Create Book'
-        expect(page).to have_content('Price can\'t be blank')
+        expect(page).to have_content('Price is not a number')
     end
 
 end
